@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// array of questions for user
+// Array of questions for user
 const questions = [
     {
         type: 'input',
@@ -54,15 +54,17 @@ const questions = [
 
 ];
 
-// function to call questions and create ReadMe
+// Function to call questions and create ReadMe
 function init() {
-    inquirer.prompt(questions).then((ans) => {
+    inquirer.prompt(questions)
+    .then((ans) => {
         const readMe = generateMarkdown(ans);
-        fs.writeFile('README_generated.md', readMe, (err) =>
+        fs.writeFile('README_generated.md', readMe, 
+        (err) =>
             err ? console.log(err) : console.log('Success!')
         );
     });
 }
 
-// function call to initialize program
+// Function call to initialize program
 init();
