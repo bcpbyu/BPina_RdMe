@@ -35,5 +35,5 @@
 
   ## Questions
 
-  GitHub: user
-  >Email: email
+  #### GitHub: user
+  #### Email: email
