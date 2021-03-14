@@ -1,3 +1,4 @@
+// Include necessarry files and things
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
@@ -53,16 +54,11 @@ const questions = [
 
 ];
 
-// function to write README file
-function writeToFile(fileName, data) {
-
-
-}
-
-// function to initialize program
+// function to call questions and create ReadMe
 function init() {
     inquirer.prompt(questions).then((ans) => {
-        fs.writeFileAsync('README_generated.md', JSON.stringify(ans, null, '\t'), (err) =>
+        const readMe = generateMarkdown(ans);
+        fs.writeFile('README_generated.md', readMe, (err) =>
             err ? console.log(err) : console.log('Success!')
         );
     });
